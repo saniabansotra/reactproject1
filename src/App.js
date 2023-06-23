@@ -4,15 +4,24 @@ const App = () => {
   // const [counter, setcounter] = useState(0);
   // const [level, setlevel] = useState("low");
   // const [color, setcolor] = useState("green");
-  const [number, setNumber] = useState("");
+  const [number1, setNumber1] = useState("");
+  const [number2, setNumber2] = useState("");
 
-  const onsubmit = (app) => {
+  const onsubmit1 = (app) => {
     App.preventDefault();
-    setNumber(number);
+    setNumber1(number1);
   };
-  const inputEvent = (app) => {
+  const inputEvent1 = (app) => {
     console.log(app.target.value);
-    setNumber(app.target.value);
+    setNumber1(app.target.value);
+  };
+  const onsubmit2 = (app) => {
+    App.preventDefault();
+    setNumber2(number2);
+  };
+  const inputEvent2 = (app) => {
+    console.log(app.target.value);
+    setNumber2(app.target.value);
   };
 
   const play = () => {
@@ -55,7 +64,7 @@ const App = () => {
       >
         <div>
           <h1 style={{ color: "white" }}>
-            Enter the number you want to multiply with 2
+            Enter the numbers you want to multiply
           </h1>
           <h1
             style={{
@@ -64,13 +73,20 @@ const App = () => {
               padding: "2%",
             }}
           >
-            {number * 2}
+            {number1 * number2}
           </h1>
           <input
+            style={{ marginBottom: "2%" }}
             type="number"
-            placeholder="Enter the Number"
-            onChange={inputEvent}
-            value={number}
+            placeholder="Enter the multiplicant"
+            onChange={inputEvent1}
+            value={number1}
+          ></input>
+          <input
+            type="number"
+            placeholder="Enter the multiplier"
+            onChange={inputEvent2}
+            value={number2}
           ></input>
         </div>
       </form>
